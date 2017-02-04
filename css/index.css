@@ -7,7 +7,7 @@ body {
 header { 
 	display: flex;
 	justify-content: space-between;
-	margin: 1% auto;
+	margin: 2px auto;
 	font-size: 20px;
 	max-width: 1250px;
 	min-width: 500px;
@@ -37,20 +37,39 @@ header {
 	color: yellow;
 	font-family:'Noto Serif', serif;
 	font-size: 20pt;
+	
 }
 nav {
-	position: relative;
+	display: flex;
+	align-items: center;
+	height: 50px;
+	width: 100%;
+	
+}
+#top_nav {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
 	max-width: 1250px;
 	min-width: 500px;
-	margin: 0 auto;
-	height: 40px;
+	margin: 30px auto;
+	width: 100%;
+	height: 50px;
+	background: rgba(0, 86, 86, 0.5);
+	
+}
+/*фиксированное плавающее меню*/
+#top_nav {
+   top: 150px; /*высота шапки в пикселях*/
+   position: fixed;
+   z-index: 1000;
 }
 .nav_button {
-	position: absolute;
 	margin: 5px;
 }
 ul.nav_menu li {
 	display: inline-block;
+	
 }
 
 ul.nav_menu li a {
@@ -75,15 +94,9 @@ nav ul.nav_menu *, input {
 	font-size: 1.1em;
 	text-decoration: none;
 }
- #test_top_nav {
-  top: 145px; /*высота шапки в пикселях*/
-  position: fixed;
-   z-index: 1000;
-}
-
 .adresa {
 	position: absolute;
-	top: 20px;
+	top: 5px;
 	right: 40px;
 }
 hr {
@@ -93,10 +106,14 @@ hr {
 article {
 	
 }
+#new_slide {
+	display: flex;
+	justify-content: space-around;
+}
 .news {
 	position: relative;
 	width: 250px;
-	height: 500px;
+	height: 520px;
 	float: left;
 	background: linear-gradient(to top, #003535, #048E8E);
 	border: 3px outset;
@@ -119,29 +136,52 @@ article {
 	bottom: 0;
 }
 .repair_text {
-	margin-left: 2%;
+	
+	padding-left: 2%;
 	font-size: 13pt;
 	font-family:'Noto Serif', serif;
-	height: 100px;
+	height: 110px;
 	color: orange;
 }
-section.slide {
-	display: flex;
-	flex-wrap: nowrap;
-	max-width: 975px;
-	min-width: 500px;
-	margin: 0 -5px;
-	background-color: white;
+#blink {
+	-webkit-animation: blink 2s linear infinite; 
+	animation: blink 2s linear infinite; 
+	font-weight: bold; 
+	color:  #F00; 
 }
+@-webkit-keyframes blink { 
+	0% { color: #F00; }
+	50% { color: #FBB; }
+	100% { color: #F00; }
+}
+
+@keyframes blink {  
+	0% { color: #F00; }
+	50% { color: #FBB; }
+	100% { color: #F00; } 
+}
+
+
 section.accessories {
 	display: flex;
 	flex-wrap: nowrap;
-	max-width:1230px;
-	min-width: 500px;
+	max-width:450px;
+	min-width: 300px;
 	margin: 0 auto;
 	background-color: white;
 }
-
+.container {
+	display: flex;
+	justify-content: center;
+	max-width: 500px;
+	min-width: 300px;
+	height: 329px;
+}  
+.carousel-inner img {
+	
+	height: 100%;
+	width: 100%;
+}
 .slide img, .accessories img {
 	width:  100%;
 }
@@ -153,6 +193,7 @@ section.accessories {
 	height: 100%;
 	margin: auto 20px;
 	font-size: 1.3em;
+	color: yellow;
 }
 #above_footer {
 	display: flex;
@@ -239,3 +280,179 @@ ul.social_but li img:hover {
 	box-shadow: 0px 0px 10px 5px #00D0D0 ;
 }
 
+/*######################################################### */
+
+
+/* Скрываем слайды перед загрузкой ява-скрипта */
+.flexslider .slides > li {
+	display: none;
+	-webkit-backface-visibility: hidden;
+}
+
+.flexslider .slides img {
+	width: 100%;
+	display: block;
+	
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+}
+
+/* Чистим предидущее изображение для .slides */
+.slides:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+
+html[xmlns] .slides { display: block; }
+* html .slides { height: 1%; }
+
+
+
+/* Основной стиль слайдера */
+.flexslider {
+	position: relative;
+	zoom: 1;
+	padding: 5px;
+	background: #ffffff;
+	
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+
+	-webkit-box-shadow: 0px 1px 1px rgba(0,0,0, .2);
+	-moz-box-shadow: 0px 1px 1px rgba(0,0,0, .2);
+	box-shadow: 0px 1px 1px rgba(0,0,0, .2);
+}
+
+/* Вы можете изменить под свои требования*/
+.flex-container {
+	
+	min-width: 300px;
+	max-width: 800px;
+}
+
+.flexslider .slides { zoom: 1; }
+
+
+
+/* Кнопки прокрутки. Стили */
+.flex-direction-nav a {
+	display: block;
+	position: absolute;
+	margin: -17px 0 0 0;
+	width: 35px;
+	height: 35px;
+	top: 50%;
+	cursor: pointer;
+	text-indent: -9999px;
+
+	background-color: #82d344;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#82d344), to(#51af34));
+	background-image: -webkit-linear-gradient(top, #82d344, #51af34);
+	background-image: -moz-linear-gradient(top, #82d344, #51af34);
+	background-image: -o-linear-gradient(top, #82d344, #51af34);
+	background-image: linear-gradient(to bottom, #82d344, #51af34);
+}
+
+.flex-direction-nav a:before {
+	display: block;
+	position: absolute;
+	content: '';
+	width: 9px;
+	height: 13px;
+	top: 11px;
+	left: 11px;
+	background: url(../img/arrows.png) no-repeat;
+}
+
+.flex-direction-nav a:after {
+	display: block;
+	position: absolute;
+	content: '';
+	width: 0;
+	height: 0;
+	top: 35px;
+}
+
+.flex-direction-nav .flex-next {
+	right: -5px;
+
+	-webkit-border-radius: 3px 0 0 3px;
+	-moz-border-radius: 3px 0 0 3px;
+	border-radius: 3px 0 0 3px;
+}
+
+.flex-direction-nav .flex-prev {
+	left: -5px;
+
+	-webkit-border-radius: 0 3px 3px 0;
+	-moz-border-radius: 0 3px 3px 0;
+	border-radius: 0 3px 3px 0;
+}
+
+.flex-direction-nav .flex-next:before { background-position: -9px 0; left: 15px; }
+.flex-direction-nav .flex-prev:before { background-position: 0 0; }
+
+.flex-direction-nav .flex-next:after {
+	right: 0;
+	border-bottom: 5px solid transparent;
+	border-left: 5px solid #31611e;
+}
+
+.flex-direction-nav .flex-prev:after {
+	left: 0;
+	border-bottom: 5px solid transparent;
+	border-right: 5px solid #31611e;
+}
+
+
+
+/* Кнопки прокрутки. Управление */
+.flexslider .flex-control-nav {
+	position: absolute;
+	width: 100%;
+	bottom: -40px;
+	text-align: center;
+	margin: 0 0 0 -10px;
+}
+
+.flex-control-nav li {
+	display: inline-block;
+	zoom: 1;
+}
+
+.flex-control-paging li a {
+	display: block;
+	cursor: pointer;
+	text-indent: -9999px;
+	width: 12px;
+	height: 12px;
+	margin: 0 3px;
+	background-color: #b6b6b6 \9;
+
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+
+	-webkit-box-shadow: inset 0 0 0 2px #b6b6b6;
+	-moz-box-shadow: inset 0 0 0 2px #b6b6b6;
+	box-shadow: inset 0 0 0 2px #b6b6b6;
+}
+
+.flex-control-paging li a.flex-active {
+	background-color: #82d344;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#82d344), to(#51af34));
+	background-image: -webkit-linear-gradient(top, #82d344, #51af34);
+	background-image: -moz-linear-gradient(top, #82d344, #51af34);
+	background-image: -o-linear-gradient(top, #82d344, #51af34);
+	background-image: linear-gradient(to bottom, #82d344, #51af34);
+
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
